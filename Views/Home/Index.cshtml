@@ -6,7 +6,7 @@
     <section>
         <h1>Todo List</h1>
         <form asp-controller="Home" asp-action="Index" method="Post">
-            <input type="text" name="NewItem">
+            <input type="text" name="NewItem" autofocus="">
             <button type="submit">Add to Todo List</button>
         </form>
     </section>
@@ -27,13 +27,14 @@
         </ul>
     </section>
     <section>
-        <h2>Comepleted</h2>
+        <h2>Completed</h2>
         <ul>
             @foreach(var item in Model)
             {
                 @if(item.IsComplete == true)
                 {
                     <li>@item.TaskName</li>
+                    <p>@item.Time</p>
                 }
             }
         </ul>
