@@ -5,12 +5,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using todo_dotnet.Models;
+using todo_dotnet.DataContext;
 
 namespace todo_dotnet.Controllers
 {
     public class HomeController : Controller
     {
-        
+        private readonly todoListContext _context;
+
+        public HomeController(todoListContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
             return View();
