@@ -16,7 +16,7 @@ namespace tododotnet.Migrations
                     Id = table.Column<int>(type: "int4", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
                     IsComplete = table.Column<bool>(type: "bool", nullable: false),
-                    TaskName = table.Column<string>(type: "text", nullable: true),
+                    TaskName = table.Column<string>(type: "text", nullable: false),
                     Time = table.Column<DateTime>(type: "timestamp", nullable: false)
                 },
                 constraints: table =>
