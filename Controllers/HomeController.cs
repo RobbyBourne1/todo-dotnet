@@ -4,10 +4,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using todo_dotnet.Models;
-using todo_dotnet.DataContext;
+using todoDotnet.Models;
+using todoDotnet.DataContext;
 
-namespace todo_dotnet.Controllers
+namespace todoDotnet.Controllers
 {
     public class HomeController : Controller
     {
@@ -20,22 +20,30 @@ namespace todo_dotnet.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(_context.Todos.ToList()); 
         }
-
-        public IActionResult About()
+ 
+        [HttpPost]
+        public IActionResult Index(string NewItem)
         {
-            ViewData["Message"] = "Your application description page.";
+            var currentToDo = new TodoModel{
+                TaskName = NewItem
+            }; 
 
-            return View();
+            _context.Add(currentToDo);
+            _context.SaveChanges();
+
+            return View(_context.Todos.ToList());
         }
 
-        public IActionResult Contact()
+        [HttpPost]
+        public IActionResult IsComplete(int Id)
         {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
+            var finished = _context.Todos.FirstOrDefault(m => m.Id == Id);
+            finished.Complete();
+            _context.SaveChanges();
+            return Redirect("Index");
+        } 
 
         public IActionResult Error()
         {

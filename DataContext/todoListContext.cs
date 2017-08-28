@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using todo_dotnet.Models;
+using todoDotnet.Models;
 
-namespace todo_dotnet.DataContext
+namespace todoDotnet.DataContext
 {
     public partial class todoListContext : DbContext
     {

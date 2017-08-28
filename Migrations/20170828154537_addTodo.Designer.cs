@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
-using todo_dotnet.DataContext;
+using todoDotnet.DataContext;
 
-namespace tododotnet.Migrations
+namespace todoDotnet.Migrations
 {
     [DbContext(typeof(todoListContext))]
     [Migration("20170828154537_addTodo")]
