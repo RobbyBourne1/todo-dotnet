@@ -7,6 +7,7 @@ namespace todo_dotnet.DataContext
 {
     public partial class todoListContext : DbContext
     {
+        public DbSet<TodoModel> Todos { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
